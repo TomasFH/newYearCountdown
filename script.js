@@ -18,11 +18,17 @@ const countdown = () => {
     const REMAINING_SECONDS = Math.floor((countdownVar % MILLISECONDS_OF_A_MINUTE) / MILLISECONDS_OF_A_SECOND);
     
     SPAN_DAYS.innerHTML = REMAINING_DAYS;
-    SPAN_HOURS.innerHTML = REMAINING_HOURS;
-    SPAN_MINUTES.innerHTML = REMAINING_MINUTES;
-    SPAN_SECONDS.innerHTML = REMAINING_SECONDS;
+    SPAN_HOURS.innerHTML = timeFormat(REMAINING_HOURS);
+    SPAN_MINUTES.innerHTML = timeFormat(REMAINING_MINUTES);
+    SPAN_SECONDS.innerHTML = timeFormat(REMAINING_SECONDS);
+};
 
-}
+const timeFormat = (time) => {
+    if(time < 10){
+        return `0${time}`
+    };
+    return time;
+};
 
 countdown();
 
